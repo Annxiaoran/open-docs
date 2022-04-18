@@ -1,15 +1,14 @@
-
-## 简介
+# 简介
 适用于 Java 语言、JDK 版本 1.6 及以上的开发环境。
 
-## 下载地址
+# 下载地址
 
 - [Maven 项目依赖](https://search.maven.org/artifact/com.alipay.sdk/alipay-sdk-java)
 - [GitHub 项目主页](https://github.com/alipay/alipay-sdk-java-all)
 
-## 示例代码
+# 示例代码
 
-### 普通调用示例
+## 普通调用示例
 ```java
 //实例化客户端
 AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2");
@@ -30,7 +29,7 @@ if(response.isSuccess()){
 }
 ```
 
-### 普通调用示例（证书）
+## 普通调用示例（证书）
 ```java
 //构造client
 CertAlipayRequest certAlipayRequest = new CertAlipayRequest();
@@ -60,7 +59,7 @@ AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
 AlipayTradeQueryResponse response = alipayClient.certificateExecute(request);
 ```
 
-### 图片上传接口调用示例
+## 图片上传接口调用示例
 ```java
 AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2");
 // 实例化具体API对应的request类,类名称和接口名称对应，当前调用接口名称：alipay.offline.material.image.upload 
@@ -80,7 +79,7 @@ if(response.isSuccess()){
 }
 ```
 
-### 图片上传接口调用示例（证书）
+## 图片上传接口调用示例（证书）
 ```java
 //构造client
 CertAlipayRequest certAlipayRequest = new CertAlipayRequest();
@@ -102,7 +101,7 @@ if(response.isSuccess()){
 }
 ```
 
-### 用户授权接口调用示例
+## 用户授权接口调用示例
 ```java
 AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2");
 //实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.user.userinfo.share
@@ -113,7 +112,7 @@ AlipayUserUserinfoShareResponse response= alipayClient.execute(request,"accessTo
 //...
 ```
 
-### 用户授权接口调用示例（证书）
+## 用户授权接口调用示例（证书）
 ```java
 //构造client
 CertAlipayRequest certAlipayRequest = new CertAlipayRequest();
@@ -124,7 +123,7 @@ AlipayUserUserinfoShareRequest request = new AlipayUserUserinfoShareRequest();
 AlipayUserUserinfoShareResponse response = alipayClient.certificateExecute(request, "access_token");
 ```
 
-### 应用授权接口调用示例（ISV 代理商户调用）
+## 应用授权接口调用示例（ISV 代理商家调用）
 ```java
 AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", CHARSET, ALIPAY_PUBLIC_KEY, "RSA2");
 //实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.open.public.template.message.industry.modify 
@@ -137,7 +136,7 @@ request.setBizContent("  { " +
 "    \"secondary_industry_code\":\"10001/20102\"," +
 "    \"secondary_industry_name\":\"IT科技/IT软件与服务\"" +
 "  }");
-//ISV代理商户调用需要传入app_auth_token
+//ISV代理商家调用需要传入app_auth_token
 request.putOtherTextParam("app_auth_token", "201511BBaaa6464f271f49e482f2e9fe63ca5F05");
 AlipayOpenPublicTemplateMessageIndustryModifyResponse response = alipayClient.execute(request); 
 //调用成功，则处理业务逻辑
@@ -146,7 +145,7 @@ if(response.isSuccess()){
 }
 ```
 
-### 应用授权接口调用示例（ISV 代理商户调用）（证书）
+## 应用授权接口调用示例（ISV 代理商家调用）（证书）
 ```java
 //构造client
 CertAlipayRequest certAlipayRequest = new CertAlipayRequest();
@@ -161,7 +160,7 @@ request.setBizContent("  { " +
 "    \"secondary_industry_code\":\"10001/20102\"," +
 "    \"secondary_industry_name\":\"IT科技/IT软件与服务\"" +
 "  }");
-//ISV代理商户调用需要传入app_auth_token
+//ISV代理商家调用需要传入app_auth_token
 request.putOtherTextParam("app_auth_token", "201511BBaaa6464f271f49e482f2e9fe63ca5F05");
 //发送应用授权请求
 AlipayTradeQueryResponse response = alipayClient.certificateExecute(request);
